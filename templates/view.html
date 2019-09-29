@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>教师信息</title>
+</head>
+<body>
+<form action="/deleteTeacher" method="get" id="delete">
+    <h3>删除的教师姓名是：</h3>
+    <input type="text" name="name">
+    <input type="submit" value="提交">
+</form>
+<hr />
+
+<form action="/getSomeTeacher" method="get" id="get">
+    <h3>学院评价查询:</h3>
+    <label>学院名称</label>
+    <input type="text" name="college">
+    <label>职称</label>
+    <input type="text" name="title">
+    <input type="submit" value="提交">
+</form>
+<div>
+    <h4>学校评价：{{ evaluation }}</h4>
+    <p>{{ data|safe }}</p>
+    <tbody>
+        <table width="400">
+            {% for row in content %}
+            <tr>
+                <td>姓名：{{ row.name }}</td>
+                <td>学校：{{ row.college }}</td>
+                <td>职称：{{ row.title }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </tbody>
+</div>
+</body>
+</html>
